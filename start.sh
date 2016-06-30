@@ -1,0 +1,9 @@
+#!/bin/bash
+clear
+echo -e "Starting Minecraft.."
+sleep 5
+cd /srv/minecraft/
+
+#screen -A -m -d -S minecraftsvr bash -c "java -Xmx3000M -Xms3000M -XX:+UseConcMarkSweepGC  -jar /home/dhc-user/minecraft/spigot-1.9.4.jar | tee server.out"
+
+screen -A -m -d -S minecraftsvr bash -c "java -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=50 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:InitiatingHeapOccupancyPercent=10 -XX:G1MixedGCLiveThresholdPercent=50 -XX:+AggressiveOpts -jar /srv/minecraft/spigot-1.10.jar | tee server.out"
