@@ -53,7 +53,7 @@ if [ $mem -lt 21 ]; then
 fi
 
 if ! screen -list | grep -q "minecraftsvr"; then
-#	/srv/minecraft/start.sh
+	/srv/minecraft/start.sh
 fi
 
 trackValue "freeMemory" $mem
