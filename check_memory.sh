@@ -49,11 +49,11 @@ if [ $mem -lt 21 ]; then
     sleep 5
     runCommand "stop"
     sleep 15
-    /srv/minecraft/start.sh
+    /srv/mc_scripts/start.sh
 fi
 
 if ! screen -list | grep -q "minecraftsvr"; then
-	/srv/minecraft/start.sh
+	/srv/mc_scripts/start.sh
 fi
 
 trackValue "freeMemory" $mem
